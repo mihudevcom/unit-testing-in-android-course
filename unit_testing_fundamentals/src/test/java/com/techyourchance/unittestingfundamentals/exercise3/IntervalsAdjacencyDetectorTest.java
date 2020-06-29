@@ -17,7 +17,6 @@ public class IntervalsAdjacencyDetectorTest {
         SUT = new IntervalsAdjacencyDetector();
     }
 
-    //interval 1 is before interval 2
     @Test
     public void isAdjacent_interval1BeforeInterval2_falseReturned() {
         Interval interval1 = new Interval(0, 5);
@@ -26,7 +25,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(false));
     }
 
-    //interval 1 is adjacent to interval 2 start
     @Test
     public void isAdjacent_interval1AdjacentStartOfInterval2_trueReturned() {
         Interval interval1 = new Interval(0, 5);
@@ -34,7 +32,6 @@ public class IntervalsAdjacencyDetectorTest {
         boolean result = SUT.isAdjacent(interval1, interval2);
         assertThat(result, is(true));
     }
-    //interval 1 is inside interval 2
 
     @Test
     public void isAdjacent_interval1InsideInterval2_falseReturned() {
@@ -44,7 +41,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(false));
     }
 
-    //interval 1 is same as interval 2
     @Test
     public void isAdjacent_interval1SameAsInterval2_falseReturned() {
         Interval interval1 = new Interval(0, 5);
@@ -53,7 +49,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(false));
     }
 
-    //interval 1 starts inside interval 2 but ends after it
     @Test
     public void isAdjacent_interval1StartInsideInterval2EndAfter_falseReturned() {
         Interval interval1 = new Interval(3, 15);
@@ -62,7 +57,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(false));
     }
 
-    //interval 1 is adjacent to interval 2 on the right
     @Test
     public void isAdjacent_interval1AdjacentInterval2End_trueReturned() {
         Interval interval1 = new Interval(10, 20);
@@ -71,7 +65,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(true));
     }
 
-    //interval 1 starts inside interval 2 but is adjacent to right of interval 2
     @Test
     public void isAdjacent_interval1StartInInterval2AdjacentInterval2End_falseReturned() {
         Interval interval1 = new Interval(6, 10);
@@ -80,7 +73,6 @@ public class IntervalsAdjacencyDetectorTest {
         assertThat(result, is(false));
     }
 
-    //interval 1 is after interval 2
     @Test
     public void isAdjacent_interval1AfterInterval2_falseReturned() {
         Interval interval1 = new Interval(16, 20);
