@@ -9,8 +9,10 @@ import com.techyourchance.mockitofundamentals.exercise5.users.UsersCache;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
@@ -23,20 +25,21 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class UpdateUsernameUseCaseSyncTest {
 
     private static final String ID = "id";
     private static final String USERNAME = "username";
     UpdateUsernameUseCaseSync SUT;
+    @Mock
     UpdateUsernameHttpEndpointSync updateUsernameHttpEndpointSync;
+    @Mock
     UsersCache usersCache;
+    @Mock
     EventBusPoster eventBusPoster;
 
     @Before
     public void setUp() throws Exception {
-        updateUsernameHttpEndpointSync = Mockito.mock(UpdateUsernameHttpEndpointSync.class);
-        usersCache = Mockito.mock(UsersCache.class);
-        eventBusPoster = Mockito.mock(EventBusPoster.class);
         SUT = new UpdateUsernameUseCaseSync(updateUsernameHttpEndpointSync, usersCache, eventBusPoster);
         success();
     }
